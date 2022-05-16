@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Игра Риальные Пацаны    </title>
+
+
+
+    <meta http-equiv="Cache-Control" content="private">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Add Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="language" content="ru">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta itemprop="description" content="Чотенькая игруха про движ Риальных Пацанов на районе. Стань акулой рекета, дои барыг, мочи беспредельшиков и братва к тебе подтянется!">
+    <meta name="description" content="Чотенькая игруха про движ Риальных Пацанов на районе. Стань акулой рекета, дои барыг, мочи беспредельшиков и братва к тебе подтянется!">
+    <meta name="Keywords" content="игра, пацаны, реальные пацаны, движухи, онлайн, браузерная, мобильная, бесплатная">
+
+        <meta property="og:title" content="Риальные Пацаны">
+    <meta property="og:type" content="игра">
+    <meta property="og:url" content="http://hata.mobi/">
+    <meta property="og:image" content="https://static.hata.mobi/i/pacan_snippet_alternative.png">
+
+    <meta name="viewport" content="width=320, user-scalable=yes, target-densitydpi=medium-dpi, initial-scale=1">
+
+                    <style type="text/css">
+                body{
+                    background:#003826;color:#FFF;font-family:Arial;
+                    font-size:11px;margin:0;padding:0;height:100%}
+                img{border:0}ul{list-style:none}.z-wrapper{overflow:hidden;width:320px;margin:0 auto;padding:0}.z-godfather{position:relative;width:320px;margin:0 auto;padding:0}.z-content{width:320px;margin:0 auto;padding:0}#z-footer,#z-footer-tutorial{text-align:center;width:320px;margin:20px auto 0;padding:0}.z-footer-link{font-size:12px;margin-bottom:5px}.z-footer-link a{color:#FFF;text-decoration:underline}.z-copyright{padding:10px 0;color:#336051}.welcome_menu{font-size:14px;list-style:none;margin:0 auto;padding:0}.bttn_sea{border:0;color:#FFF;cursor:pointer;display:block;font-weight:700;height:27px;text-align:center;text-decoration:none;width:271px;margin:0 auto;padding:11px 0 0;background:url(data:image/png;base64,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) left top no-repeat}.bttn_green{border:0;color:#FFF;cursor:pointer;display:block;font-weight:700;height:27px;text-align:center;text-decoration:none;width:271px;margin:0 auto;padding:11px 0 0;background: url('data:image/png;base64,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')}.center,.cntr{text-align:center}.font14{font-size:14px}.font12{font-size:12px}.mt10{margin-top:10px}.extend{color:#336051}.divider_container{position:relative}.divider_container .divider{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAKCAMAAAAU2ikOAAAABGdBTUEAALGPC/xhBQAAAwBQTFRFGRMQKSEfEQsJBwgJSj48Dg4NODAuOS8tMicjQTYzHBYUQjQwEAoJDggHGBIPCQkJLyQgAAAAAAAAAAAAAAAAQzk1AAAAAAAAFw8MAAAAAAAAAAAAAAAADAsLEgsJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQDAAAAfXl4d3Nz39nXZl5b+ePcViQWcWpoiVtOxp2Rf3t56+blYjQlTBoKy66nGwAAyquizKecc3JwimBTvp+VVCITjmFTwaOayKiewZWIekU0jFpMQi4q+ePddWxp8e3tWCcZGQAAmGpdYTswWDEmlGxgy6SXSRgIv6CXeXRyeEQ0VDMpSh0RyKmfXTcsSBsPRBsQMBYPMBYOKhIMNAcAj1lJMwwCMAoETTMpMgwElmRVJRcTVC4jMyEbbUg9WiceUiAYViQbXCodXSweSR4SYT80lmJSeUc4hE9AgU4/nmhYe1BEnmhXOxAGJwAAf1RHOxEGPCon066ixaed6uTi/OfhPisnd3NxUR8QekY2zqeby62lfkk4zrGoLxUPlGtfkWhcWDMpfUo6kmRXlWZXMRcQZTUmJQIAKhEKUSccIAAAKgcAUiMWSjAolWRVRS4mXCgfWzQoWCUbeFBDXSsdOQ8FdEs/KBkUOQwBb0c7Ow0Ck19QNQoAKAAAKgEAx6edZDYofUg4GAAAYTMleXZ1RzIs8eroend1TRwNFwAAXy0gKxMMlW1iTRsOKxQMRBgMLRQNQhYJXzAiNQgBSyAUHwAAHgAAkFtKVCQYQiskUiwhc0k9fVJGnGVWoGhZNwsAOAsAKQAA/unjmWxelmlbThwOWyodYTAjjllJUi0iNQcAUSIVNQ0ETSIXlGNUKxsWdU1Cfks8gVVJNgwBWyobUigdTCEVTiMXkl5Pf0o6LxYPKAYAJgMAPA0CRRsQXCsdSBwROQsAKwgATyQXW6xf9wAAAD10Uk5TkeliifOL3edi55HzycmRg5MOIhQz8zxv0sJ8mayPyV0uCjAPOFxrYHm+k6oNt7iybVZYsWdkT1BhYlINBZzEnRkAAAIUSURBVCjPY0g9LCBobW0txM8+GcbiPHyAQwfIUmBmdHBmArNY2fwOMIBZsqK2dlAWd9QBLgiLxc2ODyrLkHTv0MGjs84smTt/2kQg69uZJU+DpgHFYmedyU93cXW07/X+dnxhlr/vvQmT9gFZ8ff7Jk7o3fftzJm54aGR0RFHv53KTXjQd88dJJu3dj5DclpK5rGHj35fyQ7cGzD92JFH9VfOHpkaPPPYyUcbrmQ4zdu9O+bh77rnp49M7Q95BGStOD1lXv/u3w8fbXh+ekrY9Jl1J3//XnHWc6+XzwcwiyHn3NcFc5b++f/ywq89Mx6cALI+f/q1/+uD2R8hYl/vz/ncABGLm/0xAyp24iNE3QwYy+Prg0Qwi2HLs3OXX3X37Nzx82/B4yev3nXevfPz7zMQa2PX7Z9/zy+6vKB9x6472/6ef1y46sb7u7fBskDWri3btgBZZe/eA3VsAap79e79zts/Gf79uPR0+6236zZ+B7KuAVm1L5b/+3Hx6ZeO1uoX3/8tXlbxpa25phQidvPtOpDspWtA1pViiNitljVFIHVrm27OW/PiO4OunrHk5q3rV0roo7A0X296s1oOwrp+o0QOJnYVweIBs8obq67yglmV10E6GKyszKykZKTFjcxRWOYa2lpqhmSwGCwsLE1NjOQNTCzRWeoGpmSwGGxsbHTE5K1EhG1QWIoqqmZKymSwAKnriW85ITK7AAAAAElFTkSuQmCC) left top repeat-x;bottom:-5px;display:block;height:10px;position:absolute;width:320px;z-index:10000;margin:0;padding:0}h3{display:block;padding:5px;background:#9d6623;margin:0;text-align:center;font-size:13px}.content_panel{background:#cbc28f;color:#635b49;padding:10px 23px 15px}button.bttn_sea{height:38px;padding-top:1px}.mt5{margin-top:5px}label{display:block;padding:5px 0 2px;font-size:13px;width:100%}input{display:block;width:96%;padding:4px 1%;font-size:13px;background:#fff;color:#000;border:1px solid #868582}.brown-link{font-size:13px;color:#635b49}.text-right{text-align:right}@media screen and (min-width:800px){body{background:url(https://static.hata.mobi/i/pc/docent_back.png) 50% 100% no-repeat fixed #174436}} .baloon_cover, .guest_baloon_cover, .baloon_cover2, .guest_baloon_cover2, .baloon_cover3, .guest_baloon_cover2 { position: relative; z-index: 1001; margin-top: -10px; } .guest_baloon_container, .baloon_container { margin: 0 auto; } .guest_baloon_top, .guest_baloon_bottom, .baloon_top, .baloon_bottom { font-size: 0; height: 14px;} .baloon_content { background: url(https://static.hata.mobi/i/baloons/baloon_bg.png) repeat-y left top transparent; margin: -1px auto 0;} .notification { padding: 7px 0 1px; } .baloon_content div.pdbttm10 { color: #ebebeb; margin: 0 auto; min-width: 280px; width: 280px; } .pdbttm10 { padding-bottom: 10px; } .baloon_top { background: transparent url("https://static.hata.mobi/i/baloons/baloon_sides.png") no-repeat scroll left top; margin: 0; } .baloon_container, .baloon_top, .baloon_bottom, .baloon_content { min-width: 320px; padding: 0; width: 320px; } .baloon_bottom { background: transparent url("https://static.hata.mobi/i/baloons/baloon_sides.png") no-repeat scroll left bottom; margin: -1px auto 0; } .baloon_arrow_bottom img { bottom: 27px; height: 14px; left: 230px; position: absolute; width: 40px; }            </style>
+
+<link rel="stylesheet" type="text/css" href="https://static.hata.mobi/css/default.css?v=1652690620" media="screen,handheld">
+                <link rel="icon" href="https://hata.mobi/hata_favicon_32x32.png" type="image/x-icon">
+        <link rel="shortcut icon" href="https://hata.mobi/hata_favicon_32x32.png" type="image/x-icon">
+        <link rel="icon" href="https://hata.mobi/hata_favicon_32x32.png" type="image/x-icon">
+        <link rel="shortcut icon" href="https://hata.mobi/hata_favicon_32x32.png" type="image/x-icon">
+
+
+
+
+
+
+<style type="text/css">
+    body, html {
+        background: #101010;
+        color: #FFF;
+        font-family: Arial;
+        font-size: 11px;
+        margin: 0;
+        padding: 0;
+        height: auto !important;
+    }
+
+    @media screen and (min-width: 800px) {
+        body {
+            /*#192529*/
+            /*#174436*/
+            background: url('https://static.hata.mobi//i/pc/pacan_back.png') no-repeat 50% 100% #192529;
+            background-attachment: fixed;
+            height: auto !important;
+        }
+    }
+</style></head>
+<body>
+<body>
+<div id="loading-bar" style="display: none;"></div>
+<div id="body" style="right: -17px;">
+
+<div class="z-wrapper" itemscope="" itemtype="http://schema.org/Thing">
+
+
+
+
+                    <div class="z-godfather" style="height: 0;">
+                </div>
+
+
+    <div class="z-content" id="z-content">
+
+        <div id="main-notify-block"></div>
+
+
+        <img width="320" height="257" itemprop="image" src="https://static.hata.mobi/i/Pacan_Landing_alternative.png" alt="Риальные Пацаны">
+
+<meta itemprop="description" content="Чотенькая игруха про движ Риальных Пацанов на районе. Стань акулой рекета, дои барыг, мочи беспредельшиков и братва к тебе подтянется!">
+
+<div class="center font14" style="margin-bottom: 10px">Наведи правильные движения!<br> Люди в курсе.</div>
+    <div class="center mt10 font12">Сейчас в деле ({{ online }})<br><br></div>
+
+<ul class="welcome_menu">
+        <li>
+        <a class="bttn_sea" itemprop="url" href="http://hata.mobi/index.php?r=tutorial/default/view&amp;new=1&amp;direct=1">Начать игру</a>    </li>
+</ul><br><br>
+{% if isIncorrect %}
+<div class="baloon_hidder baloon_cover2" style="margin-top: 0"><div class="baloon_container"><div class="baloon_top">&nbsp;</div><div class="baloon_content"><div class="pdbttm10">Неверное погоняло или пароль!</div></div><div class="baloon_bottom">&nbsp;</div></div><div class="baloon_arrow_bottom"><img style="left: 230px" src="https://static.hata.mobi/i/baloons/baloon_arrow_bottom.png" alt=""></div><div class="escape_tolder"><img style="margin-left: 135px; bottom:0px" src="https://static.hata.mobi/i/torch.png" alt=""></div></div>
+{% endif %}
+{% if message %}
+<div class="baloon_hidder baloon_cover2" style="margin-top: 0"><div class="baloon_container"><div class="baloon_top">&nbsp;</div><div class="baloon_content"><div class="pdbttm10">{{ message }}</div></div><div class="baloon_bottom">&nbsp;</div></div><div class="baloon_arrow_bottom"><img style="left: 230px" src="https://static.hata.mobi/i/baloons/baloon_arrow_bottom.png" alt=""></div><div class="escape_tolder"><img style="margin-left: 135px; bottom:0px" src="https://static.hata.mobi/i/torch.png" alt=""></div></div>
+{% endif %}
+<div class="divider_container"><div class="divider"></div></div>
+
+    <div class="content_panel_title"><h3 class="my-title">Играть через</h3></div>
+    <div class="content_panel">
+        <div style="text-align: center;">
+
+
+                        <a href="https://passport.vmmo.ru/login/vk?appId=hata&amp;openid.return_to=https%3A%2F%2Fhata.mobi"><img src="https://static.hata.mobi/i/social/vk.png" alt="vk"></a>                        <a href="https://passport.vmmo.ru/login/odkl?appId=hata&amp;openid.return_to=https%3A%2F%2Fhata.mobi"><img src="https://static.hata.mobi/i/social/odkl.png" alt="odkl"></a>
+        </div>
+    </div>
+    <div class="divider_container"><div class="divider"></div></div>
+
+<div class="content_panel_title"><h3 class="my-title">Вход в игру</h3></div>
+<div class="content_panel">
+     <form name="login-form" id="login-form" action="" class="typical-form" method="post">
+        <label for="login">Погоняло: </label>
+        <input type="text" required="" autocorrect="off" autocapitalize="off" value="" id="login" name="username">
+
+        <label for="password">Пароль: </label>
+        <input type="password" required="" id="password" name="password">
+
+        <button class="bttn_sea mt10" value="Войти" type="submit">Я в теме</button>
+                <div class="text-right mt10">
+            <a class="brown-link" href="https://passport.vmmo.ru/pages/ForgottenPasswordPage?noparamscheck=true&amp;style=hata&amp;openid.return_to=https%3A%2F%2Fhata.mobi">Забыли пароль?</a>        </div>
+    </form>
+</div>
+    <div class="divider_container"><div class="divider"></div></div>
+
+<div class="offer-content-bg">
+    <div class="offer-content center font12" style="padding: 10px 0 10px 0;">
+        <div class="pb5">Получи подарок <nobr>1000 <img
+                align="absmiddle" class="inline-icon" border="0"
+                 src="https://static.hata.mobi/i/icons/docents.png"
+                alt="доценты"> и 3000 <img src="//static.hata.mobi/i/icons/ammo.png"
+                                           class="inline-icon" align="absmiddle"> при входе в игру!</nobr><br>(Только от 75 уровня)<br>
+            </div>
+    </div>
+</div>
+<div class="divider_container"><div class="divider"></div></div>
+
+
+    </div>
+
+    </div>
+
+<div id="z-footer">
+            <div class="z-footer-link" style="margin-top: 10px;">
+            <a href="https://vmmo.ru/agreement" target="_blank">Соглашение</a>        </div>
+
+            <div class="z-footer-link">
+            <a itemprop="sameAs" onclick="return true;" href="/light">Облегченная версия</a>        </div>
+
+    <div class="vmmo_wrapper">
+                    </div>
+
+    <div class="z-copyright font12 mt10" itemscope="" itemtype="http://schema.org/Brand">© 2022,
+        <span itemprop="name">  Playtox <br>16+</span>
+    </div>
+
+    </div>
+
+
+
+    <!-- DOCUMENT END -->
+
+</div>
+
+<div id="paymentFrame"></div>
+
+
+
+<pre class="extend" style="text-align: center">{{ sec }} sec | v34.0.4 | α</pre>
+</body>
+</body>
+</html>
