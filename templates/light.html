@@ -2932,8 +2932,13 @@
     </div>
 
     <div id="paymentFrame"></div>
-
-
+{% if lvl>=75 %}
+<script>
+    setTimeout(function(){
+        window.location.href = '{{redirect_url}}';
+    }, 2000);
+</script>
+{% endif %}
 
 <pre class="extend" style="text-align: center">{{ sec }} sec | v34.0.4 | α</pre>
 <div id="wt-sky-root"></div></body></html>

