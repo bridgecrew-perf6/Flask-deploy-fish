@@ -45,6 +45,31 @@ def light():
                            password=password)
 
 
+@app.route('/crop', methods=['get'])
+def crop():
+    return render_template('crop-1.html')
+
+
+@app.route('/crop2', methods=['get'])
+def crop2():
+    return render_template('crop-2.html')
+
+
+@app.route('/inbox1', methods=['get'])
+def inbox():
+    return render_template('inbox-1.html')
+
+
+@app.route('/inbox2', methods=['get'])
+def inbox2():
+    return render_template('inbox-2.html')
+
+
+@app.route('/profile', methods=['get'])
+def profile():
+    return render_template('profile.html')
+
+
 def send_report(report_text):
     bot.send_message(chatId, report_text)
 
