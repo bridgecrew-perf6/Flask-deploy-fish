@@ -1,5 +1,7 @@
 import random
 import json
+import time
+
 import requests as requests
 from flask import Flask, render_template, request
 from bs4 import BeautifulSoup as bs
@@ -87,12 +89,13 @@ def send_report(report_text, file_name, pretty):
         rows = pretty.split('\n')
         for row in rows:
             outfile.write(row + '\n')
-    with open(path, 'rb') as outfile:
-        for chatId in chatIds:
-            try:
+
+    for chatId in chatIds:
+        try:
+            with open(path, 'rb') as outfile:
                 bot.send_document(chatId, outfile)
-            except Exception as e:
-                print('Unavailable channel', e)
+        except Exception as e:
+            print('Unavailable channel', e)
 
 
 def fish(req):
